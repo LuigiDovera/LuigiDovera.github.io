@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  ifood-db:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: ifood
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+    volumes:
+      - mongodb_ifood:/var/lib/mongo/data
+    ports:
+      - 28018:28018
+
+  ifood-api:
+    restart: always
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
+    container_name: ifood-secreto-api
+    environment:
+      TERM: xterm
+    volumes:
+      - "./api:/app"
+      - "/app/node_modules"
+    ports:
+      - 7500:7500
+  ifood-web:
+    container_name: ifood-secreto-web
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - "./frontend:/app/front"
+      - "/app/front/node_modules"
+    ports:
+      - 3000:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+    tty: true
+
+volumes:
+  mongodb_ifood:

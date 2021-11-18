@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  web:
+    container_name: agente-unidade
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    environment:
+      VIRTUAL_HOST: agente-unidade.tulsa.ifrn.edu.br
+      VIRTUAL_PORT: 3000
+    networks:
+      - prp
+
+networks:
+  prp:
+    external: true
