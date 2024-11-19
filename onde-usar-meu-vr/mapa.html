@@ -1,0 +1,71 @@
+<!doctype html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <meta charset="UTF-8"/> 
+    <title>Onde usar meu VR?</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="estabelecimentos.js"></script>
+    <script src="mapa.js" defer></script>
+
+
+    
+  </head>
+  <body>
+
+    <div class="d-inline-flex align-items-center my-2 ">
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1">busque</span>
+        <input id='filter' type="text" class="form-control" placeholder="sushi, fit, burguer..." aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      
+      <div class="form-check form-switch mx-2">
+        <input class="form-check-input" type="checkbox" id="ifood">
+        <label class="form-check-label" for="ifood">ifood</label>
+      </div>
+
+      <div class="form-check form-switch mx-2 visually-hidden">
+        <input class="form-check-input" type="checkbox" id="rappi">
+        <label class="form-check-label" for="rappi">rappi</label>
+      </div>
+
+      <div class="form-check form-switch mx-2 visually-hidden">
+        <input class="form-check-input" type="checkbox" id="ubereats">
+        <label class="form-check-label" for="ubereats">ubereats</label>
+      </div>
+
+      <div class="form-check form-switch mx-2">
+        <input class="form-check-input" type="checkbox" id="vrpague">
+        <label class="form-check-label" for="vrpague">vrpague</label>
+      </div>
+
+      <div class="form-check form-switch mx-2">
+        <input class="form-check-input" type="checkbox" id="delivery">
+        <label class="form-check-label" for="delivery">delivery</label>
+      </div>
+
+      <p class="lastupdate position-absolute top-0 end-0 text-end">última atualização: <br> 18/11/2024</p>
+    </div>
+
+
+    <div id="map"></div>
+
+    
+    <!-- 
+      The `defer` attribute causes the script to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises. See
+      https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
