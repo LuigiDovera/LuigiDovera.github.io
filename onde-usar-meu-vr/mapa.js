@@ -7,6 +7,8 @@
         + adicionar marcadores de delivery 
 */
 
+var estabelecimentos = [].concat(lagoa, marrecas, saocristovao, niteroi, saogoncalo, madureira, inhauma, taquara);
+
 var filterValue = "";
 var ifoodValue = false;
 var rappiValue = false;
